@@ -21,9 +21,14 @@ public class JumpingGame  {
 	}
 public static void main(String[] args) {
 	
-	JumpingGame jg = new JumpingGame();
-	jg.setup();
+	//JumpingGame jg = new JumpingGame();
+	//jg.setup();
 	
+	
+	
+	
+	new Level2GameTemplate();
 }
+
 
 }
