@@ -21,7 +21,7 @@ public class JumpingGame implements MouseListener{
 		jf.setVisible(true);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf.addMouseListener(gp);
-		
+		jf.addKeyListener(gp);
 		
 	}
 public static void main(String[] args) {
