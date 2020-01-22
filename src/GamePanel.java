@@ -10,6 +10,7 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -21,6 +22,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 	   Font titleFont;
 	   Font semiFont;
 	   Timer frameDraw;
+	   Ball ball = new Ball(250,300,50,50);
 	public static BufferedImage backgroundImg;
 	
 
@@ -63,9 +65,15 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 		g.drawString("Press SPACE for instructions", 350, 500);
 	}
 	
-	void drawGameState(Graphics g) {  }
+	void drawGameState(Graphics g) {  
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, JumpingGame.JG_WIDTH, JumpingGame.JG_HEIGHT);
+		ball.draw(g);
+		
+	}
 	
 	void drawEndState(Graphics g)  { 
+		
 		
 		g.setColor(Color.RED);
 		g.fillRect(0, 0, JumpingGame.JG_WIDTH, JumpingGame.JG_HEIGHT);
@@ -84,8 +92,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 	
 	@Override
 	public void paintComponent(Graphics g) {
-	g.fillOval(50,50,50,50);
-		g.drawOval(50, 50, 50, 50);
+	
 		if(currentState == MENU){
 		    drawMenuState(g);
 		}else if(currentState == GAME){
@@ -148,7 +155,11 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		if (e.getKeyCode()==KeyEvent.VK_SPACE) {
+			
+			JOptionPane.showMessageDialog(null, "Press ENTER to start, Use ARROW KEYS to move, Don't get hit by the walls");
+			
+		}
 		
 		if (e.getKeyCode()==KeyEvent.VK_ENTER) {
 		    if (currentState == END) {
@@ -157,13 +168,17 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 		        currentState++;
 		    }
 		}   if (e.getKeyCode()==KeyEvent.VK_UP) {
-		    System.out.println("UP");
+		    System.out.println("up");
+		 ball.up();
 		}if (e.getKeyCode()==KeyEvent.VK_DOWN) {
 		    System.out.println("down");
+		    ball.down();
 		}if (e.getKeyCode()==KeyEvent.VK_LEFT) {
 		    System.out.println("left");
+		    ball.left();
 		}if (e.getKeyCode()==KeyEvent.VK_RIGHT) {
 		    System.out.println("right");
+		    ball.right();
 		}
 		
 	}

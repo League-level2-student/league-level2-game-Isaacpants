@@ -8,10 +8,18 @@ import javax.swing.JFrame;
 
 
 public class JumpingGame implements MouseListener{
+	
+	//download league invaders
+	//copy down movement of the rocket
+	//add walls
+	//set boundaries
+	//add wall boundaries
+	
+	
 	static JFrame jf;
 	static GamePanel gp = new GamePanel();
 	public static int JG_WIDTH = 1000	;
-	public static int JG_HEIGHT = 700;
+	public static int JG_HEIGHT = 800;
 	
 	public JumpingGame() {
 		jf = new JFrame();
