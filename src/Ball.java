@@ -9,7 +9,7 @@ public class Ball extends GameObject {
 	}void draw(Graphics g){
 		   g.setColor(Color.BLUE);
 		   g.fillOval(x,y,width,height);
-			//g.drawOval(x, y, 50, 50);
+		
 	}    public void left() {
         x-=speed;
     }    public void right() {

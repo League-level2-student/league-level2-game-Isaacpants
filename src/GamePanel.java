@@ -8,6 +8,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
@@ -23,6 +24,10 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 	   Font semiFont;
 	   Timer frameDraw;
 	   Ball ball = new Ball(250,300,50,50);
+	   objectManager om = new objectManager(ball);
+	   static Random rand = new Random();
+
+	  
 	public static BufferedImage backgroundImg;
 	
 
@@ -65,15 +70,21 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 		g.drawString("Press SPACE for instructions", 350, 500);
 	}
 	
-	void drawGameState(Graphics g) {  
+	void drawGameState(Graphics g) { 
+		
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, JumpingGame.JG_WIDTH, JumpingGame.JG_HEIGHT);
-		ball.draw(g);
+		om.draw(g);
 		
+//		for (int i = 0; i < 20; i++) {
+//			 food f = new food(rand.nextInt(1000), rand.nextInt(800), 10, 10);
+//				f.draw(g);
+//		}
+//	
 	}
 	
 	void drawEndState(Graphics g)  { 
-		
+	
 		
 		g.setColor(Color.RED);
 		g.fillRect(0, 0, JumpingGame.JG_WIDTH, JumpingGame.JG_HEIGHT);
