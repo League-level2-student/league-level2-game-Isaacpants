@@ -7,7 +7,7 @@ Ball b;
 Random r = new Random();
 ArrayList<food> foods = new ArrayList<food>();
 public objectManager(Ball b) {
-b=new Ball(250,300,50,50);
+this.b=b;
 
 }void addFood(){
 	foods.add(new food(r.nextInt(JumpingGame.JG_WIDTH),r.nextInt(JumpingGame.JG_HEIGHT),50,50));
