@@ -51,6 +51,11 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 	}
 
 	void updateGameState() {
+		
+		b.update();
+		
+		
+		
 	}
 
 	void updateEndState() {
@@ -189,6 +194,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 		//	System.out.println("right");
 			b.RIGHT = true;
+			
 		}
 
 	}
