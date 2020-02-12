@@ -23,8 +23,10 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 	Font titleFont;
 	Font semiFont;
 	Timer frameDraw;
+	Timer foodSpawn;
 	Ball b = new Ball(250, 300, 50, 50);
-	objectManager om = new objectManager(b);
+	ObjectManager om = new ObjectManager(b);
+	Food f = new Food(100,100,10,10);
 	static Random rand = new Random();
 
 	public static BufferedImage backgroundImg;
@@ -45,6 +47,9 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 			e.printStackTrace();
 
 		}
+	}void startGame(){
+		//foodSpawn = new Timer(1000, om);
+		//foodSpawn.start();
 	}
 
 	void updateMenuState() {
@@ -81,7 +86,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, JumpingGame.JG_WIDTH, JumpingGame.JG_HEIGHT);
 		om.draw(g);
-
+		f.draw(g);
 //		for (int i = 0; i < 20; i++) {
 //			 food f = new food(rand.nextInt(1000), rand.nextInt(800), 10, 10);
 //				f.draw(g);

@@ -39,21 +39,21 @@ public class Ball extends GameObject {
 
 		public void up() {
 			
-		    if(y>=14) {
+		    if(y>=5) {
 			    y-=speed;
 			    }
 		}
 
 		public void down() {
 		
-			   if(y<750) {
+			   if(y<725) {
 					y += speed;
 				    }
 		}
 
 		public void left() {
 			
-			  if(x>20) {
+			  if(x>0) {
 				  x -= speed;
 				    }
 		}
