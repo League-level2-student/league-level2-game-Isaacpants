@@ -87,6 +87,10 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 		g.fillRect(0, 0, JumpingGame.JG_WIDTH, JumpingGame.JG_HEIGHT);
 		om.draw(g);
 		f.draw(g);
+		g.setFont(semiFont);
+		g.setColor(Color.WHITE);
+		g.drawString("Score = " + om.score, 50,50);
+		
 //		for (int i = 0; i < 20; i++) {
 //			 food f = new food(rand.nextInt(1000), rand.nextInt(800), 10, 10);
 //				f.draw(g);
