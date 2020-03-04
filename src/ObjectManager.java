@@ -11,26 +11,35 @@ Random r = new Random();
 public int getScore() {
 	return score;
 }
-ArrayList<Food> foods = new ArrayList<Food>();
+ArrayList<Food> foods = new ArrayList<Food>(20);
 public ObjectManager(Ball b) {
 this.b=b;
 
 }void addFood(){
-	foods.add(new Food(r.nextInt(JumpingGame.JG_WIDTH),r.nextInt(JumpingGame.JG_HEIGHT),50,50));
+	foods.add(new Food(r.nextInt(JumpingGame.JG_WIDTH),r.nextInt(JumpingGame.JG_HEIGHT),10,10));
 	
-	checkCollision();
-	purgeObjects();
+
 	
 }void draw (Graphics g){
 		b.draw(g);
-		for (Food f : foods) {
-			f.draw(g);
-		} 
-		
-		
+//	 for (int i = 0; i <20; i++) {
+//		addFood();
+//		
+//		}
+for (Food f : foods) {
+	f.draw(g);
+	//addFood();
+}	
+
 		
 
 
+}void update(){
+	for (Food f : foods) {
+		f.update();
+	
+	}
+	b.update();
 }
 
 
@@ -57,11 +66,17 @@ void purgeObjects(){
 
 	
 	}
+}void manageFood(){
+	
+		
+	
+	addFood();
+	
 }
 @Override
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
-	addFood();
+//addFood();
 }
 
 
