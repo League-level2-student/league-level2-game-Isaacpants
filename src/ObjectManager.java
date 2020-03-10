@@ -16,7 +16,7 @@ public ObjectManager(Ball b) {
 this.b=b;
 
 }void addFood(){
-	foods.add(new Food(r.nextInt(JumpingGame.JG_WIDTH),r.nextInt(JumpingGame.JG_HEIGHT),10,10));
+	foods.add(new Food(r.nextInt(JumpingGame.JG_WIDTH)-10,r.nextInt(JumpingGame.JG_HEIGHT)-10,10,10));
 	
 
 	
@@ -40,6 +40,8 @@ for (Food f : foods) {
 	
 	}
 	b.update();
+	checkCollision();
+	purgeObjects();
 }
 
 
@@ -69,8 +71,12 @@ void purgeObjects(){
 }void manageFood(){
 	
 		
+	if(foods.size()<=50){
+		addFood();
+		
+		
+	}
 	
-	addFood();
 	
 }
 @Override

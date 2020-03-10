@@ -50,6 +50,7 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 	}void startGame(){
 		//foodSpawn = new Timer(1000, om);
 		//foodSpawn.start();
+		
 	}
 
 	void updateMenuState() {
@@ -59,7 +60,11 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 		
 		//b.update();
 		om.update();
+		
 		om.manageFood();
+		if(om.score==200) {
+			currentState=END;
+		}
 	}
 
 	void updateEndState() {
@@ -67,12 +72,12 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 
 	void drawMenuState(Graphics g) {
 
-		g.setColor(Color.GREEN);
+		g.setColor(Color.BLUE);
 		g.fillRect(0, 0, JumpingGame.JG_WIDTH, JumpingGame.JG_HEIGHT);
 
 		g.setFont(titleFont);
 		g.setColor(Color.BLACK);
-		g.drawString("Jumping Game", 325, 300);
+		g.drawString("Cookie Monster", 325, 300);
 
 		g.setFont(semiFont);
 		g.drawString("Press Enter to start", 400, 400);
@@ -99,12 +104,12 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 
 	void drawEndState(Graphics g) {
 
-		g.setColor(Color.RED);
+		g.setColor(Color.GREEN);
 		g.fillRect(0, 0, JumpingGame.JG_WIDTH, JumpingGame.JG_HEIGHT);
 
 		g.setFont(titleFont);
 		g.setColor(Color.BLACK);
-		g.drawString("GAME OVER", 325, 300);
+		g.drawString("YOU WIN!", 325, 300);
 
 	}
 
@@ -176,13 +181,17 @@ public class GamePanel extends JPanel implements MouseListener, ActionListener, 
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 
 			JOptionPane.showMessageDialog(null,
-					"Press ENTER to start, Use ARROW KEYS to move, Don't get hit by the walls");
+					"Press ENTER to start, Use ARROW KEYS to move, Collect 200 food to win");
 
 		}
 
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			if (currentState == END) {
+				b=new Ball(250, 300, 50, 50);
+				om=new ObjectManager(b);
 				currentState = MENU;
+				
+				
 			} else {
 				currentState++;
 			}
